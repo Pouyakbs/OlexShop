@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.26" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.26">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="3.1.26" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OlexShop.Core.ApplicationService\OlexShop.Core.ApplicationService.csproj" />
+    <ProjectReference Include="..\OlexShop.Core.Contracts\OlexShop.Core.Contracts.csproj" />
+    <ProjectReference Include="..\OlexShop.Infrastructure.Data\OlexShop.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\OlexShop.Infrastructure.EF\OlexShop.Infrastructure.EF.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+  </ItemGroup>
+
+</Project>

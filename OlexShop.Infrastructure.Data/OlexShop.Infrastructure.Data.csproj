@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\OlexShop.Core.Contracts\OlexShop.Core.Contracts.csproj" />
+    <ProjectReference Include="..\OlexShop.Core.Domain\OlexShop.Core.Domain.csproj" />
+    <ProjectReference Include="..\OlexShop.Infrastructure.EF\OlexShop.Infrastructure.EF.csproj" />
+  </ItemGroup>
+
+</Project>
