@@ -9,6 +9,7 @@ using OlexShop.Service;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -143,6 +144,23 @@ namespace OlexShop.Areas.Admin.Controllers
                             file.CopyTo(fs);
                             fs.Flush();
                         }
+
+
+                        using (var image = Bitmap.FromFile(filepath))
+                        {
+                            using (var tempBitmap = new Bitmap(image))
+                            {
+                                using (Graphics grp = Graphics.FromImage(tempBitmap))
+                                {
+                                    image.Dispose();
+                                    var logopath = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", "logos")).Root + $@"logo-3.png";
+                                    var logo = Bitmap.FromFile(logopath);
+                                    grp.DrawImage(logo , 0 , 0);
+                                    tempBitmap.Save(filepath);
+                                }
+                            }
+                        }
+                        
                         ProductImagesDTO productImagesDTO = new ProductImagesDTO()
                         {
                             ImageId = ImageFiles.ImageId,
