@@ -324,13 +324,12 @@
                                         <label for="ProductId">ProductId</label>
                                         <input type="number" class="form-control" name="ProductId" id="ProductId" placeholder="ProductId">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" id="imagesDiv">
                                         <label>Product Images</label>
                                         <input type="file" name="Images" id="Images" class="file-upload-default" multiple>
                                         <div class="input-group col-xs-12">
-                                            <input type="text" class="form-control file-upload-info" name="Images" id="Images" placeholder="Upload Image">
                                             <span class="input-group-append">
-                                                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                                <button onclick="addImageUploader()" class="btn btn-primary" type="button">Add More</button>
                                             </span>
                                         </div>
                                     </div>
@@ -403,7 +402,7 @@
     <!-- page-body-wrapper ends -->
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="../../vendors/js/vendor.bundle.base.js"></script>
+    <script src="~/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <script src="~/vendors/typeahead.js/typeahead.bundle.min.js"></script>
@@ -422,6 +421,21 @@
     <script src="~/js/typeahead.js"></script>
     <script src="~/js/select2.js"></script>
     <!-- End custom js for this page-->
+    <script>
+        var imagesCount = 0;
+        function addImageUploader() {
+            imagesCount += 1;
+
+            $('#imagesDiv').append(
+                $('<input/>').attr('type', 'file')
+                    .attr('class', "form-control file-upload-info")
+                    .attr('name', `Images`)
+                    .attr('placeholder', `Select Image`)
+            );
+        }
+        addImageUploader();
+
+    </script>
 </body>
 
 </html>
